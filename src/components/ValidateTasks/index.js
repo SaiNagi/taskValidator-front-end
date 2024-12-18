@@ -35,7 +35,7 @@ const ValidateTasks = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:3000/tasks?creator=${otherUser}`,
+          `https://taskvalidator-backend-1.onrender.com/tasks?creator=${otherUser}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setTasks(response.data);
@@ -52,7 +52,7 @@ const ValidateTasks = () => {
   const validateTask = async (taskId, status) => {
     try {
       await axios.post(
-        `http://localhost:3000/tasks/${taskId}/validate`,
+        `https://taskvalidator-backend-1.onrender.com/tasks/${taskId}/validate`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -74,7 +74,7 @@ const ValidateTasks = () => {
   const renderProof = () => {
     if (!selectedProof) return null;
 
-    const proofPath = `http://localhost:3000/${selectedProof}`.replace(/\\/g, "/");
+    const proofPath = `https://taskvalidator-backend-1.onrender.com/${selectedProof}`.replace(/\\/g, "/");
 
     if (
       proofPath.endsWith(".jpg") ||
