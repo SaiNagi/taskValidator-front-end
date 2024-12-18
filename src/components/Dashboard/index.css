@@ -1,0 +1,82 @@
+h2{
+    text-align: center;
+    font-size: 40px;
+}
+.tasks{
+    
+}
+
+/* Overall Dashboard Styling */
+.dashboard {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Header Styling */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  /* Title Styling */
+  .header h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  /* Logout Button Styling */
+  .logout-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .logout-button {
+    background-color: #d9534f;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #c9302c;
+  }
+  
+  /* Task Form Container Styling */
+  .task-form-container {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Task List Styling */
+  .tasks {
+    margin-top: 20px;
+  }
+  
+  .tasks ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .tasks li {
+    background-color: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,0 +1,63 @@
+/* General styles for the TaskList container */
+.task-cont {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 80vw;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Task list title */
+  h3 {
+    font-size: 1.8em;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  /* Individual task container */
+  .task-cont > div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .task-cont > div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Task title */
+  h4 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Task description */
+  p {
+    margin: 5px 0;
+    line-height: 1.6;
+  }
+  
+  /* Due date and status styling */
+  p:last-of-type {
+    font-weight: bold;
+  }
+  
+  /* Highlighting status */
+  p:contains("Completed") {
+    color: #4CAF50;
+  }
+  
+  p:contains("Pending") {
+    color: #FF9800;
+  }
+  
