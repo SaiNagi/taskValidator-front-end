@@ -8,7 +8,7 @@ const Logout = () => {
   // Function to handle logout
   const handleLogout = async () => {
     try {
-      await axios.post('https://taskvalidator-backend-1.onrender.com/logout', {}, { withCredentials: true });
+      await axios.post('https://taskvalidator-backend.onrender.com/logout', {}, { withCredentials: true });
       window.location.href = '/login';
     } catch (error) {
       console.error('Error during logout:', error);
