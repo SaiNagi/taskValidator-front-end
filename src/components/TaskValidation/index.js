@@ -22,7 +22,7 @@ const TaskValidation = ({ task }) => {
 
     try {
       await axios.post(
-        `https://taskvalidator-backend-1.onrender.com/tasks/${task.id}/proof`,
+        `https://taskvalidator-backend.onrender.com/tasks/${task.id}/proof`,
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },
