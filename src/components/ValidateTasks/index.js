@@ -3,11 +3,10 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import "./index.css"; // Import the CSS file
+import "./index.css";
 
 const ValidateTasks = () => {
   const { currentUser, token, setToken } = useContext(AuthContext);
-  const [createdTasks, setCreatedTasks] = useState([]);
   const [assignedTasks, setAssignedTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedProof, setSelectedProof] = useState(null);
@@ -26,26 +25,18 @@ const ValidateTasks = () => {
   }, [token, setToken, navigate]);
 
   useEffect(() => {
-    const fetchTasks = async () => {
+    const fetchAssignedTasks = async () => {
       if (!token) {
         setLoading(false);
         return;
       }
 
       try {
-        // Fetch tasks created by the current user
-        const createdResponse = await axios.get(
-          `https://taskvalidator-backend.onrender.com/tasks`,
-          { headers: { Authorization: `Bearer ${token}` } }
-        );
-        setCreatedTasks(createdResponse.data);
-
-        // Fetch tasks assigned to the current user
-        const assignedResponse = await axios.get(
+        const response = await axios.get(
           `https://taskvalidator-backend.onrender.com/tasks?assignee=${currentUser}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        setAssignedTasks(assignedResponse.data);
+        setAssignedTasks(response.data);
       } catch (error) {
         setError("Failed to load tasks. Please try again.");
       } finally {
@@ -53,7 +44,7 @@ const ValidateTasks = () => {
       }
     };
 
-    fetchTasks();
+    fetchAssignedTasks();
   }, [currentUser, token]);
 
   const validateTask = async (taskId, status) => {
@@ -64,11 +55,6 @@ const ValidateTasks = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       alert(`Task ${status.toLowerCase()} successfully!`);
-      setCreatedTasks((prev) =>
-        prev.map((task) =>
-          task.id === taskId ? { ...task, status } : task
-        )
-      );
       setAssignedTasks((prev) =>
         prev.map((task) =>
           task.id === taskId ? { ...task, status } : task
@@ -116,70 +102,8 @@ const ValidateTasks = () => {
 
   return (
     <div className="validate-tasks-container">
-      <h1 className="tasks-header">Created Tasks</h1>
-      {error && <p className="error-text">{error}</p>}
-      {createdTasks.length === 0 ? (
-        <p className="no-tasks-text">No tasks created.</p>
-      ) : (
-        <table className="tasks-table">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Due Date</th>
-              <th>Assignee</th>
-              <th>Proof</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {createdTasks.map((task) => (
-              <tr key={task.id}>
-                <td>{task.title}</td>
-                <td>{task.description}</td>
-                <td>{task.due_date}</td>
-                <td>{task.assignee}</td>
-                <td>
-                  {task.proof ? (
-                    <button
-                      className="view-proof-btn"
-                      onClick={() => handleViewProof(task.proof)}
-                    >
-                      View Proof
-                    </button>
-                  ) : (
-                    "No proof submitted"
-                  )}
-                </td>
-                <td>{task.status}</td>
-                <td>
-                  {task.status === "Pending" && task.proof ? (
-                    <>
-                      <button
-                        className="approve-btn"
-                        onClick={() => validateTask(task.id, "Approved")}
-                      >
-                        Approve
-                      </button>
-                      <button
-                        className="reject-btn"
-                        onClick={() => validateTask(task.id, "Rejected")}
-                      >
-                        Reject
-                      </button>
-                    </>
-                  ) : (
-                    "No action available"
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-
       <h1 className="tasks-header">Assigned Tasks</h1>
+      {error && <p className="error-text">{error}</p>}
       {assignedTasks.length === 0 ? (
         <p className="no-tasks-text">No tasks assigned.</p>
       ) : (
