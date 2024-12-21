@@ -19,7 +19,7 @@ const Dashboard = () => {
       }
 
       try {
-        const response = await axios.get('https://taskvalidator-backend-1.onrender.com/tasks', {
+        const response = await axios.get('https://taskvalidator-backend.onrender.com/tasks', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTasks(response.data);
