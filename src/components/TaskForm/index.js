@@ -21,7 +21,7 @@ const TaskForm = () => {
 
     try {
       await axios.post(
-        'https://taskvalidator-backend-1.onrender.com/tasks',
+        'https://taskvalidator-backend.onrender.com/tasks',
         { title, description, due_date: dueDate, assignee },
         { headers: { Authorization: `Bearer ${token}` } }
       );
