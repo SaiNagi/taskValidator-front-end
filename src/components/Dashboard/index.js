@@ -44,10 +44,10 @@ const Dashboard = () => {
         }
       );
 
-      // Update the local state with the updated task
+      // Update the task in local state with the updated task
       setTasks((prevTasks) =>
         prevTasks.map((task) =>
-          task.id === id ? { ...task, ...response.data } : task
+          task.id === id ? { ...task, ...updatedTask } : task
         )
       );
     } catch (error) {
