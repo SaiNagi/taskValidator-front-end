@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
 import axios from 'axios';
 import TaskForm from '../TaskForm';
 import TaskList from '../TaskList';
 import { AuthContext } from '../context/AuthContext'; // Import the AuthContext
 import './index.css';
-import Logout  from '../Logout';
+import Logout from '../Logout';
 
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
   const { token } = useContext(AuthContext); // Access the token from context
+  const navigate = useNavigate(); // Initialize navigation hook
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -31,6 +33,10 @@ const Dashboard = () => {
     fetchTasks();
   }, [token]);
 
+  const handleNavigateToValidateTasks = () => {
+    navigate('/validateTasks'); // Navigate to the Validate Tasks page
+  };
+
   return (
     <div className="dashboard">
       <div className="header">
@@ -42,6 +48,9 @@ const Dashboard = () => {
       </div>
       <div className="tasks">
         <TaskList tasks={tasks} />
+      </div>
+      <div className="navigation-button">
+        <button onClick={handleNavigateToValidateTasks}>Go to Validate Tasks</button>
       </div>
     </div>
   );
