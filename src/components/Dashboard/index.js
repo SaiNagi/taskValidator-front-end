@@ -55,6 +55,20 @@ const Dashboard = () => {
     }
   };
 
+  // Handle deleting a task
+  const handleDeleteTask = async (id) => {
+    try {
+      await axios.delete(`https://taskvalidator-backend.onrender.com/tasks/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      // Remove the task from local state after deletion
+      setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    } catch (error) {
+      console.error('Failed to delete task:', error);
+    }
+  };
+
   // Navigation to Validate Tasks page
   const handleNavigateToValidateTasks = () => {
     navigate('/validateTasks');
@@ -70,7 +84,7 @@ const Dashboard = () => {
         <TaskForm />
       </div>
       <div className="tasks">
-        <TaskList tasks={tasks} onSaveTask={handleSaveTask} />
+        <TaskList tasks={tasks} onSaveTask={handleSaveTask} onDeleteTask={handleDeleteTask} />
       </div>
       <div className="navigation-button">
         <button onClick={handleNavigateToValidateTasks}>Validate Tasks</button>
