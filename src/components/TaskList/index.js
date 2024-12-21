@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TaskValidation from '../TaskValidation';
 import './index.css';
 
-const TaskList = ({ tasks, onSaveTask }) => {
+const TaskList = ({ tasks, onSaveTask, onDeleteTask }) => {
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editedTask, setEditedTask] = useState({});
 
@@ -24,6 +24,10 @@ const TaskList = ({ tasks, onSaveTask }) => {
   const handleCancelClick = () => {
     setEditingTaskId(null);
     setEditedTask({});
+  };
+
+  const handleDeleteClick = (id) => {
+    onDeleteTask(id); // Call parent function to delete task
   };
 
   return (
@@ -70,6 +74,7 @@ const TaskList = ({ tasks, onSaveTask }) => {
               <p>Assignee: {task.assignee}</p>
               <TaskValidation task={task} />
               <button onClick={() => handleEditClick(task)}>Edit</button>
+              <button onClick={() => handleDeleteClick(task.id)}>Delete</button>
             </>
           )}
         </div>
