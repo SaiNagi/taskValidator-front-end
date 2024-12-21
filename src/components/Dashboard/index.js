@@ -50,7 +50,7 @@ const Dashboard = () => {
         <TaskList tasks={tasks} />
       </div>
       <div className="navigation-button">
-        <button onClick={handleNavigateToValidateTasks}>Go to Validate Tasks</button>
+        <button onClick={handleNavigateToValidateTasks}>Validate Tasks</button>
       </div>
     </div>
   );
