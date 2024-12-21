@@ -33,7 +33,7 @@ const ValidateTasks = () => {
 
       try {
         const response = await axios.get(
-          `https://taskvalidator-backend.onrender.com/tasks?assignee=${currentUser}`,
+          `https://taskvalidator-backend.onrender.com/tasks/validate`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setAssignedTasks(response.data);
