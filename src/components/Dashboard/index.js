@@ -8,13 +8,13 @@ import './index.css';
 import Logout from '../Logout';
 
 const Dashboard = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]); // State for storing tasks
   const { token } = useContext(AuthContext); // Access the token from context
   const navigate = useNavigate(); // Initialize navigation hook
 
+  // Fetch tasks on component mount or token update
   useEffect(() => {
     const fetchTasks = async () => {
-      console.log('Checking Token in Dashboard:', token);
       if (!token) {
         console.error('Token is not available');
         return;
@@ -24,7 +24,7 @@ const Dashboard = () => {
         const response = await axios.get('https://taskvalidator-backend.onrender.com/tasks', {
           headers: { Authorization: `Bearer ${token}` },
         });
-        setTasks(response.data);
+        setTasks(response.data); // Set fetched tasks
       } catch (error) {
         console.error('Failed to fetch tasks:', error);
       }
@@ -33,8 +33,31 @@ const Dashboard = () => {
     fetchTasks();
   }, [token]);
 
+  // Handle saving an edited task
+  const handleSaveTask = async (id, updatedTask) => {
+    try {
+      const response = await axios.put(
+        `https://taskvalidator-backend.onrender.com/tasks/${id}`,
+        updatedTask,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      // Update the local state with the updated task
+      setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          task.id === id ? { ...task, ...response.data } : task
+        )
+      );
+    } catch (error) {
+      console.error('Failed to update task:', error);
+    }
+  };
+
+  // Navigation to Validate Tasks page
   const handleNavigateToValidateTasks = () => {
-    navigate('/validateTasks'); // Navigate to the Validate Tasks page
+    navigate('/validateTasks');
   };
 
   return (
@@ -47,7 +70,7 @@ const Dashboard = () => {
         <TaskForm />
       </div>
       <div className="tasks">
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} onSaveTask={handleSaveTask} />
       </div>
       <div className="navigation-button">
         <button onClick={handleNavigateToValidateTasks}>Validate Tasks</button>
