@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import Header  from "../Header";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
@@ -105,6 +106,9 @@ const ValidateTasks = () => {
 
   return (
     <div className="validate-tasks-container">
+      <div>
+        <Header/>
+      </div>
       <h1 className="tasks-header">Assigned Tasks</h1>
       {error && <p className="error-text">{error}</p>}
       {assignedTasks.length === 0 ? (

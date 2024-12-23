@@ -38,7 +38,7 @@ const TaskForm = () => {
       <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
       <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
       <input type="text" placeholder="Assignee" value={assignee} onChange={(e) => setAssignee(e.target.value)} />
-      <button type="submit">Create Task</button>
+      <button type="submit" className='task-button'>Create Task</button>
     </form>
   );
 };

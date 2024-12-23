@@ -32,7 +32,7 @@ const TaskList = ({ tasks, onSaveTask, onDeleteTask }) => {
 
   return (
     <div>
-      <h3>Task List</h3>
+      <h3 className='task-list-heading'>Task List</h3>
       {tasks.map((task) => (
         <div key={task.id} className="task-cont">
           {editingTaskId === task.id ? (

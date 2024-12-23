@@ -1,63 +1,87 @@
-/* General styles for the TaskList container */
+/* General Styling for Task List */
+.task-list-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Task Container Styling */
 .task-cont {
-    font-family: Arial, sans-serif;
-    color: #333;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    width: 80vw;
-    margin: 20px auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Task list title */
-  h3 {
-    font-size: 1.8em;
-    color: #4CAF50;
-    text-align: center;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-  
-  /* Individual task container */
-  .task-cont > div {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    padding: 15px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .task-cont > div:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Task title */
-  h4 {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  /* Task description */
-  p {
-    margin: 5px 0;
-    line-height: 1.6;
-  }
-  
-  /* Due date and status styling */
-  p:last-of-type {
-    font-weight: bold;
-  }
-  
-  /* Highlighting status */
-  p:contains("Completed") {
-    color: #4CAF50;
-  }
-  
-  p:contains("Pending") {
-    color: #FF9800;
-  }
-  
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 100%;
+}
+
+.task-cont h4 {
+  font-size: 20px;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.task-cont p {
+  font-size: 16px;
+  color: #666666;
+  margin: 5px 0;
+}
+
+/* Input and Textarea Styling */
+.task-cont input[type="text"],
+.task-cont textarea,
+.task-cont input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.task-cont input[type="text"]:focus,
+.task-cont textarea:focus,
+.task-cont input[type="date"]:focus {
+  border-color: #00cc66;
+  outline: none;
+}
+
+/* Button Styling */
+.task-cont button {
+  background-color: #00cc66;
+  color: white;
+  font-size: 14px;
+  padding: 8px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.task-cont button:hover {
+  background-color: #00994d;
+  transform: scale(1.05);
+}
+
+/* Secondary Button Styling */
+.task-cont button:nth-child(even) {
+  background-color: #ffffff;
+  color: #003366;
+  border: 2px solid #003366;
+}
+
+.task-cont button:nth-child(even):hover {
+  background-color: #e6e6e6;
+}
+
+/* Validation Component Container */
+.task-validation {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ff9900; /* Accent color for validation messages */
+}

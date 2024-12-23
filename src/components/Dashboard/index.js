@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate from React
 import axios from 'axios';
 import TaskForm from '../TaskForm';
 import TaskList from '../TaskList';
+import Header from '../Header'
 import { AuthContext } from '../context/AuthContext'; // Import the AuthContext
 import './index.css';
 import Logout from '../Logout';
@@ -76,9 +77,8 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <div className="header">
-        <h2>Dashboard</h2>
-        <Logout />
+      <div>
+        <Header/>
       </div>
       <div className="task-form-container">
         <TaskForm />
