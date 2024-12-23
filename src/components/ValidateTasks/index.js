@@ -13,6 +13,7 @@ const ValidateTasks = () => {
   const [error, setError] = useState(null); // Error handling state
   const navigate = useNavigate();
 
+  // Ensure token is available
   useEffect(() => {
     if (!token) {
       const storedToken = Cookies.get("token");
@@ -24,6 +25,7 @@ const ValidateTasks = () => {
     }
   }, [token, setToken, navigate]);
 
+  // Fetch assigned tasks
   useEffect(() => {
     const fetchAssignedTasks = async () => {
       if (!token) {
@@ -47,6 +49,7 @@ const ValidateTasks = () => {
     fetchAssignedTasks();
   }, [currentUser, token]);
 
+  // Validate task (Approve or Reject)
   const validateTask = async (taskId, status) => {
     try {
       await axios.post(
@@ -65,26 +68,26 @@ const ValidateTasks = () => {
     }
   };
 
+  // View proof
   const handleViewProof = (proof) => {
     setSelectedProof(proof);
   };
 
+  // Render proof
   const renderProof = () => {
     if (!selectedProof) return null;
 
-    const proofPath = `https://taskvalidator-backend.onrender.com/${selectedProof}`.replace(/\\/g, "/");
-
     if (
-      proofPath.endsWith(".jpg") ||
-      proofPath.endsWith(".jpeg") ||
-      proofPath.endsWith(".png") ||
-      proofPath.endsWith(".gif")
+      selectedProof.endsWith(".jpg") ||
+      selectedProof.endsWith(".jpeg") ||
+      selectedProof.endsWith(".png") ||
+      selectedProof.endsWith(".gif")
     ) {
-      return <img src={proofPath} alt="Proof" className="proof-image" />;
-    } else if (proofPath.endsWith(".pdf")) {
+      return <img src={selectedProof} alt="Proof" className="proof-image" />;
+    } else if (selectedProof.endsWith(".pdf")) {
       return (
         <iframe
-          src={proofPath}
+          src={selectedProof}
           width="100%"
           height="500px"
           title="Task Proof"
