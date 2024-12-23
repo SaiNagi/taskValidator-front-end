@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';  // External CSS for styles (or use styled-components)
+import Logout  from '../Logout';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,6 +34,7 @@ const Header = () => {
           <li><a href="/tasks">Tasks</a></li>
           <li><a href="/validate">Validate</a></li>
           <li><a href="/profile">Profile</a></li>
+          <li><Logout/></li>
         </ul>
       </nav>
     </header>
