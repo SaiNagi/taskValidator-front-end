@@ -4,7 +4,7 @@ import axios from 'axios';
 import TaskForm from '../TaskForm';
 import TaskList from '../TaskList';
 import Header from '../Header'
-import { AuthContext } from '../context/AuthContext'; // Import the AuthContext
+import { AuthContext } from '../context/AuthContext'; 
 import './index.css';
 import Logout from '../Logout';
 
