@@ -1,4 +1,4 @@
-/* General Styling for Task List */
+
 .task-list-heading {
   font-size: 24px;
   font-weight: bold;
@@ -7,7 +7,6 @@
   margin-bottom: 20px;
 }
 
-/* Task Container Styling */
 .task-cont {
   background-color: #ffffff;
   border: 1px solid #dddddd;
@@ -30,7 +29,6 @@
   margin: 5px 0;
 }
 
-/* Input and Textarea Styling */
 .task-cont input[type="text"],
 .task-cont textarea,
 .task-cont input[type="date"] {
@@ -50,7 +48,6 @@
   outline: none;
 }
 
-/* Button Styling */
 .task-cont button {
   background-color: #00cc66;
   color: white;
@@ -68,7 +65,6 @@
   transform: scale(1.05);
 }
 
-/* Secondary Button Styling */
 .task-cont button:nth-child(even) {
   background-color: #ffffff;
   color: #003366;
@@ -79,9 +75,8 @@
   background-color: #e6e6e6;
 }
 
-/* Validation Component Container */
 .task-validation {
   margin-top: 10px;
   font-size: 14px;
-  color: #ff9900; /* Accent color for validation messages */
+  color: #ff9900;
 }

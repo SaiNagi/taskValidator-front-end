@@ -1,108 +1,97 @@
-/* Container styling */
 .validate-tasks-container {
-    margin: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Header styling */
-  .tasks-header {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  /* Error text styling */
-  .error-text {
-    color: red;
-    margin-bottom: 15px;
-  }
-  
-  /* Table styling */
-  .tasks-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-  }
-  
-  .tasks-table th,
-  .tasks-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .tasks-table th {
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  .tasks-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .tasks-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Button styling */
-  .view-proof-btn,
-  .approve-btn,
-  .reject-btn,
-  .close-proof-btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    margin-right: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .approve-btn {
-    background-color: #28a745;
-  }
-  
-  .reject-btn {
-    background-color: #dc3545;
-  }
-  
-  .view-proof-btn:hover,
-  .approve-btn:hover,
-  .reject-btn:hover,
-  .close-proof-btn:hover {
-    opacity: 0.8;
-  }
-  
-  /* Proof modal styling */
-  .proof-modal {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    background-color: #fefefe;
-  }
-  
-  /* Loading text */
-  .loading-text {
-    color: #555;
-  }
-  
-  /* Image styling */
-  .proof-image {
-    max-width: 500px;
-    max-height: 300px;
-    width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  /* iFrame styling */
-  .proof-iframe {
-    border: 1px solid #ccc;
-  }
-  
-  /* No tasks text styling */
-  .no-tasks-text {
-    color: #777;
-  }
-  
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.tasks-header {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.error-text {
+  color: red;
+  margin-bottom: 15px;
+}
+
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.tasks-table th,
+.tasks-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tasks-table th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.tasks-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tasks-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.view-proof-btn,
+.approve-btn,
+.reject-btn,
+.close-proof-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.approve-btn {
+  background-color: #28a745;
+}
+
+.reject-btn {
+  background-color: #dc3545;
+}
+
+.view-proof-btn:hover,
+.approve-btn:hover,
+.reject-btn:hover,
+.close-proof-btn:hover {
+  opacity: 0.8;
+}
+
+.proof-modal {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  background-color: #fefefe;
+}
+
+.loading-text {
+  color: #555;
+}
+
+.proof-image {
+  max-width: 500px;
+  max-height: 300px;
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.proof-iframe {
+  border: 1px solid #ccc;
+}
+
+.no-tasks-text {
+  color: #777;
+}
