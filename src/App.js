@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthContext } from './components/context/AuthContext';
 import Login from './components/Login';
+import Profile from './components/Profile'
 import Dashboard from './components/Dashboard';
 import ValidateTasks from './components/ValidateTasks';
 import Cookies from 'js-cookie'; // Import js-cookie
@@ -53,6 +54,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <ValidateTasks />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }
         />

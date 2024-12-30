@@ -1,0 +1,100 @@
+/* Ensure the body takes full height and sets a background */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fb;
+}
+
+/* The container for the whole page */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+}
+
+/* Profile container to hold user details */
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin: 20px auto;
+  flex-direction: row;
+}
+
+/* Profile image styles */
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px; /* Adjusted margin between image and text */
+}
+
+/* Profile details container */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px; /* Reduced gap between elements */
+  text-align: left; /* Ensure the text is aligned to the left */
+  margin: 0; /* Removed any margin from the container */
+}
+
+/* Name styling */
+.profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0; /* Removed margin */
+}
+
+/* Email styling */
+.profile-email {
+  font-size: 16px;
+  color:black;
+  margin: 0; /* Removed margin */
+}
+
+/* Score styling */
+.profile-score {
+  font-size: 18px;
+  color: #4caf50;
+  margin: 0; /* Removed margin */
+}
+
+/* Skeleton loading container for profile */
+.skeleton-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.skeleton-container .react-loading-skeleton {
+  margin-right: 15px;
+}
+
+.skeleton-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skeleton-details .react-loading-skeleton {
+  margin-bottom: 10px;
+}
