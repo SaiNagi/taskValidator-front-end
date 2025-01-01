@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import ValidateTasks from './components/ValidateTasks';
 import Cookies from 'js-cookie'; // Import js-cookie
 import Leaderboard from './components/LeaderBoard';
+import Register from './components/Register';
 
 const App = () => {
   const { currentUser, setCurrentUser, token, setToken } = useContext(AuthContext);
@@ -71,6 +72,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Leaderboard/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <ProtectedRoute>
+              <Register/>
             </ProtectedRoute>
           }
         />
