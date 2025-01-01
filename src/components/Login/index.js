@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { AuthContext } from '../context/AuthContext'; // Import the context
 import Cookies from 'js-cookie'; // Import js-cookie
 
@@ -63,6 +63,10 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
+
+      <div className="new-user-section">
+        <p>New here? <Link to="/register" className="register-link">Register now</Link></p>
+      </div>
 
       <footer className="login-footer">
         <p>Start validating your tasks and stay on track with Task Validator!</p>

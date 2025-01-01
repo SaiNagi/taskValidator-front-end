@@ -59,7 +59,7 @@
   border-color: #007bff;
 }
 
-.login-form button {
+.login-form button, .register-button{
   width: 100%;
   padding: 10px;
   margin-top: 10px;
@@ -72,7 +72,7 @@
   transition: background-color 0.3s ease;
 }
 
-.login-form button:hover {
+.login-form button:hover ,.register-button:hover{
   background-color: #0056b3;
 }
 
@@ -84,6 +84,17 @@
 
 .login-footer p {
   margin: 0;
+}
+
+.register-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+  color: #0056b3;
 }
 
 @media (max-width: 480px) {
