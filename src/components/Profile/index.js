@@ -4,6 +4,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { AuthContext } from "../context/AuthContext"; // Import AuthContext
 import Leaderboard from "../LeaderBoard"; // Leaderboard component import
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
 import './index.css'
 
 const Profile = () => {
@@ -12,6 +13,11 @@ const Profile = () => {
   const [leaderboard, setLeaderboard] = useState([]); // Add leaderboard state
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Initialize navigation hook
+
+  const handleNavigateDashboard = () => {
+    navigate('/dashboard');
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -76,6 +82,11 @@ const Profile = () => {
       <div className="leaderboard-section">
         <Leaderboard leaderboard={leaderboard} loading={loading} />
       </div>
+
+      <div className="navigate-dashboard">
+        <button onClick={handleNavigateDashboard}>Back To Dash Board</button>
+      </div>
+
     </div>
   );
 };
