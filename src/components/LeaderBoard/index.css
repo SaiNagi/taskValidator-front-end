@@ -1,0 +1,74 @@
+.leaderboard-container {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-container h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.leaderboard-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.leaderboard-entry:hover {
+  transform: scale(1.02);
+}
+
+.leaderboard-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+}
+
+.rank-1 .leaderboard-image {
+  border-color: gold;
+}
+
+.rank-2 .leaderboard-image {
+  border-color: silver;
+}
+
+.rank-3 .leaderboard-image {
+  border-color: #cd7f32; /* Bronze */
+}
+
+.leaderboard-entry p {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+}
+
+.rank-1 {
+  background-color: #fff8e1;
+}
+
+.rank-2 {
+  background-color: #f4f4f4;
+}
+
+.rank-3 {
+  background-color: #f9e6dc;
+}
+
+.no-data {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+}

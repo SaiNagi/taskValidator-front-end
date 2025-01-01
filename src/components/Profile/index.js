@@ -3,11 +3,13 @@ import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { AuthContext } from "../context/AuthContext"; // Import AuthContext
+import Leaderboard from "../LeaderBoard"; // Leaderboard component import
 import './index.css'
 
 const Profile = () => {
   const { token } = useContext(AuthContext); // Access the token from context
   const [user, setUser] = useState(null);
+  const [leaderboard, setLeaderboard] = useState([]); // Add leaderboard state
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -20,10 +22,17 @@ const Profile = () => {
       }
 
       try {
-        const response = await axios.get("https://taskvalidator-backend.onrender.com/user", {
+        const userResponse = await axios.get("https://taskvalidator-backend.onrender.com/user", {
           headers: { Authorization: `Bearer ${token}` }, // Send token in request headers
         });
-        setUser(response.data); // Set user data
+        setUser(userResponse.data); // Set user data
+
+        // Fetch leaderboard data after the user data is fetched
+        const leaderboardResponse = await axios.get("https://taskvalidator-backend.onrender.com/leaderboard", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setLeaderboard(leaderboardResponse.data); // Set leaderboard data
+
         setLoading(false);
       } catch (err) {
         setError("Failed to fetch user details. Please try again.");
@@ -36,14 +45,17 @@ const Profile = () => {
 
   if (loading) {
     return (
-      <div className="profile-container">
-        <Skeleton circle={true} height={100} width={100} />
-        <div className="profile-details">
-          <Skeleton height={20} width={200} />
-          <Skeleton height={15} width={300} />
-          <Skeleton height={15} width={150} />
+      <>
+        <div className="profile-container">
+          <Skeleton circle={true} height={100} width={100} />
+          <div className="profile-details">
+            <Skeleton height={20} width={200} />
+            <Skeleton height={15} width={300} />
+            <Skeleton height={15} width={150} />
+          </div>
         </div>
-      </div>
+        <Leaderboard loading={loading} /> {/* Pass loading to Leaderboard */}
+      </>
     );
   }
 
@@ -51,11 +63,18 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <img src={user?.image} alt={`${user?.name}'s profile`} className="profile-image" />
-      <div className="profile-details">
-        <h2 className="profile-name">Name: {user?.username}</h2>
-        <p className="profile-email">email: {user?.email}</p>
-        <p className="profile-score">Score: {user?.score}</p>
+      <div className="profile-section">
+        <img src={user?.image} alt={`${user?.username}'s profile`} className="profile-image" />
+        <div className="profile-details">
+          <h2 className="profile-name">Name: {user?.username}</h2>
+          <p className="profile-email">Email: {user?.email}</p>
+          <p className="profile-score">Score: {user?.score}</p>
+        </div>
+      </div>
+
+      {/* Leaderboard Section */}
+      <div className="leaderboard-section">
+        <Leaderboard leaderboard={leaderboard} loading={loading} />
       </div>
     </div>
   );

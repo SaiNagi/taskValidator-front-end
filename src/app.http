@@ -14,4 +14,8 @@ Content-Type: application/json
 
 ###
 GET https://taskvalidator-backend.onrender.com/user
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhaXJhbSIsImlhdCI6MTczNTU2NTYwMSwiZXhwIjoxNzM1NTY5MjAxfQ.dML1zX4s4rhg59BF1_IJsGJYSKYGY23Jcqo6zEq1gHk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhaXJhbSIsImlhdCI6MTczNTcwNjIzNywiZXhwIjoxNzM1NzA5ODM3fQ.psz6omhtR4vEKs23f21oRX6_S86qqewKLxSQ3ur0qb8
+
+### Fetch Leaderboard API
+GET https://taskvalidator-backend.onrender.com/leaderboard
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhaXJhbSIsImlhdCI6MTczNTcwNjIzNywiZXhwIjoxNzM1NzA5ODM3fQ.psz6omhtR4vEKs23f21oRX6_S86qqewKLxSQ3ur0qb8
