@@ -15,6 +15,8 @@ const Dashboard = () => {
 
   // Fetch tasks on component mount or token update
   useEffect(() => {
+
+    console.log("Fetching the tasks using tokens")
     const fetchTasks = async () => {
       if (!token) {
         console.error('Token is not available');

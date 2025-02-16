@@ -13,6 +13,12 @@ const App = () => {
   const { currentUser, setCurrentUser, token, setToken } = useContext(AuthContext);
   const [loading, setLoading] = useState(true); // Loading state to delay route rendering
 
+
+  console.log('current user: ', currentUser);
+  console.log('token: ', token);
+
+
+
   // Retrieve user data and token from cookies on app load
   useEffect(() => {
     const savedToken = Cookies.get('token');
@@ -30,11 +36,25 @@ const App = () => {
 
   // Guarded Route: Redirects to login if the user is not logged in
   const ProtectedRoute = ({ children }) => {
+    if(currentUser && token){
+      setLoading(false);
+    }
     if (loading) {
       return <p>Loading...</p>; // Prevent rendering routes before checking cookies
     }
 
+    
+
     return currentUser && token ? children : <Navigate to="/" />;
+
+    // if(token && currentUser){
+    //   setLoading(false);
+    //   return children;
+    // }
+    // else{
+      
+    //   return <Navigate to="/login" />
+    // }
   };
 
   return (
